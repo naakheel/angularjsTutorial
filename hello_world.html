@@ -5,8 +5,14 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</head>
 	<body style="padding:50px">
-		<div class="alert alert-info">
-			First step toward adopting AngularJS. "{{ 'Hello World' }}" 
+		<div class="alert alert-info" ng-init="greeting = { greeter: 'Marc', message: 'Hello World!!'}">
+			<p>
+				<input type="text" ng-model="greeting.greeter" size="20" />
+			</p>
+			<p>
+				<input type="text" ng-model="greeting.message" size="20" />
+			</p>
+			{{greeting.greeter}} says {{ greeting.message }}
 		</div>
 	</body>
 </html>

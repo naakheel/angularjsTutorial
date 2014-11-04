@@ -5,17 +5,17 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</head>
 	<body style="padding:50px">
-		<div ng-init="albums = [ {name:'madrid',date:'2013-09-01'},
-									{name:'iceland',date:'2013-03-05'},
-									{name:'thailand',date:'2013-05-12'},
-									{name:'australia',date:'2013-02-11'}]">
+		<div ng-init="albums = [ {name:'madrid',date:'2013-09-01',title:'Exploring Spain'},
+									{name:'iceland',date:'2013-03-05',title:'Cold as hell'},
+									{name:'thailand',date:'2013-05-12',title:'Cheap and best'},
+									{name:'australia',date:'2013-02-11',title:'Wedding bash and cricket'}]">
 
 			<p>
 				There are {{albums.length}} albums available to view
 			</p>
 			<ul>
-				<li ng-repeat="album in albums">
-					{{ album.name }} ({{ album.date }})
+				<li ng-repeat="album in albums | filter:'iceland'">
+					{{album.title |uppercase}} - {{ album.name }} ({{ album.date }})
 				</li>
 			</ul>
 		</div>

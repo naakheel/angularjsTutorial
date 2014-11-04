@@ -10,11 +10,12 @@
 									{name:'thailand',date:'2013-05-12',title:'Cheap and best'},
 									{name:'australia',date:'2013-02-11',title:'Wedding bash and cricket'}]">
 
+			<input type="text" ng-model="searchFor" size="20" />
 			<p>
 				There are {{albums.length}} albums available to view
 			</p>
 			<ul>
-				<li ng-repeat="album in albums | filter:'iceland'">
+				<li ng-repeat="album in albums | filter:searchFor | orderBy:'date'">
 					{{album.title |uppercase}} - {{ album.name }} ({{ album.date }})
 				</li>
 			</ul>

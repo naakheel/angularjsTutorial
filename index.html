@@ -23,7 +23,7 @@
 				There are {{albums.length}} albums available to view
 			</p>
 			<ul>
-				<li ng-repeat="album in albums | filter:searchFor | orderBy:'date'" ng-class="{ evenRow : $even, oddRow : $odd }">
+				<li ng-repeat="album in albums | filter:searchFor | orderBy:'date'" ng-class-even="'evenRow'" ng-class-odd="'oddRow'">
 					{{ $index + 1 }}  - {{album.title |uppercase}} - {{ album.name }} ({{ album.date }})
 				</li>
 			</ul>

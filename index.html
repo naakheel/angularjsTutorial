@@ -3,6 +3,14 @@
 		<link rel="stylesheet" href="css/bootstrap.css"/>
 		<script type="text/javascript" src="js/angular.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<style>
+			.evenRow {
+				color: blue;
+			}
+			.oddRow {
+				color: red;
+			}
+		</style>
 	</head>
 	<body style="padding:50px">
 		<div ng-init="albums = [ {name:'madrid',date:'2013-09-01',title:'Exploring Spain'},
@@ -15,8 +23,8 @@
 				There are {{albums.length}} albums available to view
 			</p>
 			<ul>
-				<li ng-repeat="album in albums | filter:searchFor | orderBy:'date'">
-					{{album.title |uppercase}} - {{ album.name }} ({{ album.date }})
+				<li ng-repeat="album in albums | filter:searchFor | orderBy:'date'" ng-class="{ evenRow : $even, oddRow : $odd }">
+					{{ $index + 1 }}  - {{album.title |uppercase}} - {{ album.name }} ({{ album.date }})
 				</li>
 			</ul>
 		</div>

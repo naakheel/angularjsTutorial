@@ -6,11 +6,7 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>		
 	</head>
 	<body style="padding:50px">
-		<div ng-init="albums = [ {name:'madrid',date:'2013-09-01',title:'Exploring Spain',description:'Fun weekedn visiting the capital of Spain'},
-									{name:'iceland',date:'2013-03-05',title:'Cold as hell',description:'Oh boy its really cold in Iceland!!'},
-									{name:'thailand',date:'2013-05-12',title:'Cheap and best',description:'We ate entirely too much Thai food and had a great time at the beach'},
-									{name:'australia',date:'2013-02-11',title:'Wedding bash and cricket',description:'We went to visit our friends for thier wedding in Australia and also caught a cricket game'}]">
-
+		<div ng-controller="AlbumListController">
 			<input placeholder="Type to search.." type="text" ng-model="searchFor" size="30" />
 			<p>
 				There are {{albums.length}} albums available to view
@@ -25,5 +21,10 @@
 				</div>
 			</div>	
 		</div>
+		<script type="text/javascript">
+			function AlbumListController ( $scope ) {
+				$scope.albums = [ {name:'madrid',date:'2013-09-01',title:'Exploring Spain',description:'Fun weekedn visiting the capital of Spain'},{name:'iceland',date:'2013-03-05',title:'Cold as hell',description:'Oh boy its really cold in Iceland!!'},{name:'thailand',date:'2013-05-12',title:'Cheap and best',description:'We ate entirely too much Thai food and had a great time at the beach'},{name:'australia',date:'2013-02-11',title:'Wedding bash and cricket',description:'We went to visit our friends for thier wedding in Australia and also caught a cricket game'}];
+			}
+		</script>		
 	</body>
 </html>

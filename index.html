@@ -20,10 +20,37 @@
 					{{album.description}}
 				</div>
 			</div>	
+			<div style="clear:left"> </div>
+			<h3>Add New Album</h3>
+			<div class="album panel panel-default">
+				<div class="panel-heading"> 
+					<input type="text" placeholder="Title..." size="20" ng-model="adding_album.title"/>
+					<div style="float:right">
+						<input type="text" placeholder="yyyy/mm/dd" size="10" ng-model="adding_album.date"/>
+					</div>
+				</div>
+				<div class="description">	
+					<p>
+						<textarea placeholder="Description..." rows="3" style="width:100%" ng-model="adding_album.description"></textarea>
+					</p>
+					<p>						
+						<input type="text" placeholder="Name..." size="20" ng-model="adding_album.name"/>
+					</p>	
+				 	<p>
+						<button ng-click="addAlbum(adding_album)">Add New Album</button>
+					</p>
+				</div>
+			</div>
 		</div>
 		<script type="text/javascript">
 			function AlbumListController ( $scope ) {
+				$scope.adding_album = {};
 				$scope.albums = [ {name:'madrid',date:'2013-09-01',title:'Exploring Spain',description:'Fun weekedn visiting the capital of Spain'},{name:'iceland',date:'2013-03-05',title:'Cold as hell',description:'Oh boy its really cold in Iceland!!'},{name:'thailand',date:'2013-05-12',title:'Cheap and best',description:'We ate entirely too much Thai food and had a great time at the beach'},{name:'australia',date:'2013-02-11',title:'Wedding bash and cricket',description:'We went to visit our friends for thier wedding in Australia and also caught a cricket game'}];
+
+				$scope.addAlbum = function (new_album){					
+					$scope.albums.push(new_album);
+					$scope.adding_album = {};
+				}
 			}
 		</script>		
 	</body>
